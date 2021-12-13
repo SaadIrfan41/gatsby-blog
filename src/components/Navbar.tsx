@@ -1,10 +1,12 @@
 import React from 'react'
 import firebase from 'gatsby-plugin-firebase'
 import { Link } from 'gatsby'
-import { useAuthState } from 'react-firebase-hooks/auth'
+// import { useAuthState } from 'react-firebase-hooks/auth'
 import { StaticImage } from 'gatsby-plugin-image'
+//@ts-ignore
+import useAuthState from './useAuthState.js'
 const Navbar = () => {
-  const [user, loading, error] = useAuthState(firebase.auth())
+  const [user, loading, error] = useAuthState(firebase)
 
   if (error) {
     return <h1>ERRROR</h1>
