@@ -3,13 +3,15 @@ import { Link } from 'gatsby'
 import React from 'react'
 import * as yup from 'yup'
 import firebase from 'gatsby-plugin-firebase'
-import { useAuthState } from 'react-firebase-hooks/auth'
+// import { useAuthState } from 'react-firebase-hooks/auth'
+//@ts-ignore
+import useAuthState from '../components/useAuthState.js'
 import { navigate } from 'gatsby'
 
 const login = () => {
-  const auth = firebase.auth()
+  // const auth = firebase.auth()
   // const googleProvider = new firebase.auth.GoogleAuthProvider()
-  const [user, loading, error] = useAuthState(auth)
+  const [user, loading, error] = useAuthState(firebase)
   if (loading)
     return (
       <div className='  grid place-items-center mt-32'>
