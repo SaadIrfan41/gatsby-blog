@@ -8,7 +8,7 @@ import { navigate } from 'gatsby'
 
 const login = () => {
   const auth = firebase.auth()
-  const googleProvider = new firebase.auth.GoogleAuthProvider()
+  // const googleProvider = new firebase.auth.GoogleAuthProvider()
   const [user, loading, error] = useAuthState(auth)
   if (loading)
     return (

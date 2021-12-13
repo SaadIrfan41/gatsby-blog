@@ -1,12 +1,14 @@
 import { Link } from 'gatsby'
 import { GatsbyImage } from 'gatsby-plugin-image'
-import { useAuthState } from 'react-firebase-hooks/auth'
+// import { useAuthState } from 'react-firebase-hooks/auth'
+//@ts-ignore
+import useAuthState from './useAuthState.js'
 import firebase from 'gatsby-plugin-firebase'
 import React from 'react'
 import { navigate } from 'gatsby'
 
 const Blogs = ({ data }: any) => {
-  const [user, loading, error] = useAuthState(firebase.auth())
+  const [user, loading, error] = useAuthState(firebase)
   return (
     <div>
       <div className='relative bg-gray-50  pb-20 px-4 sm:px-6  lg:pb-28 lg:px-8'>

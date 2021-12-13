@@ -1,6 +1,8 @@
 import React from 'react'
 import { GatsbyImage, GatsbyImageProps } from 'gatsby-plugin-image'
-import { useAuthState } from 'react-firebase-hooks/auth'
+// import { useAuthState } from 'react-firebase-hooks/auth'
+//@ts-ignore
+import useAuthState from './useAuthState.js'
 import firebase from 'gatsby-plugin-firebase'
 import TextareaAutosize from 'react-textarea-autosize'
 import { navigate } from 'gatsby-link'
@@ -18,7 +20,7 @@ type pageContextprops = {
 const Blog_Template = ({
   pageContext: { description, image, name, roles },
 }: pageContextprops) => {
-  const [user, loading, error] = useAuthState(firebase.auth())
+  const [user, loading, error] = useAuthState(firebase)
   if (loading)
     return (
       <div className='mt-56 flex justify-center items-center'>
