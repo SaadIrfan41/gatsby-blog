@@ -15,7 +15,13 @@
     "clean": "gatsby clean"
   },
   "dependencies": {
+    "dotenv": "^10.0.0",
+    "eslint": "^7.32.0",
+    "firebase": "^8.2.4",
+    "formik": "^2.2.9",
+    "framework7-react": "^6.3.7",
     "gatsby": "^4.0.2",
+    "gatsby-plugin-firebase": "^0.2.0-beta.4",
     "gatsby-plugin-image": "^2.0.0",
     "gatsby-plugin-manifest": "^4.0.0",
     "gatsby-plugin-react-helmet": "^5.0.0",
@@ -24,8 +30,27 @@
     "gatsby-source-contentful": "^6.0.0",
     "gatsby-source-filesystem": "^4.0.0",
     "gatsby-transformer-sharp": "^4.0.0",
+    "prettier": "^2.4.1",
+    "pure-react-carousel": "^1.27.6",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
-    "react-helmet": "^6.1.0"
+    "react-elastic-carousel": "^0.11.5",
+    "react-firebase-hooks": "^3.0.4",
+    "react-helmet": "^6.1.0",
+    "react-responsive-carousel": "^3.2.22",
+    "react-slick": "^0.28.1",
+    "react-textarea-autosize": "^8.3.3",
+    "slick-carousel": "^1.8.1",
+    "swiper": "^7.2.0",
+    "yup": "^0.32.11"
+  },
+  "devDependencies": {
+    "@types/react-slick": "^0.23.7",
+    "@typescript-eslint/parser": "^4.33.0",
+    "autoprefixer": "^10.4.0",
+    "gatsby-plugin-postcss": "^5.0.0",
+    "postcss": "^8.3.11",
+    "tailwindcss": "^2.2.19",
+    "typescript": "^4.4.4"
   }
 }

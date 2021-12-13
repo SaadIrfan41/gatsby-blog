@@ -1,34 +1,61 @@
+require('dotenv').config({
+  path: `.env.${process.env.NODE_ENV}`,
+})
 module.exports = {
   siteMetadata: {
-    siteUrl: "https://www.yourdomain.tld",
-    title: "Gatsby Blog",
+    siteUrl: 'https://www.yourdomain.tld',
+    title: 'Gatsby Blog',
   },
   plugins: [
     {
-      resolve: "gatsby-source-contentful",
+      resolve: 'gatsby-source-contentful',
       options: {
-        accessToken: "w9hRbbXuatuMlryEE5U24PSgxtqI89mq_tulXv4fqcc",
-        spaceId: "2mvg456t1qqf",
+        accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
+        spaceId: process.env.CONTENTFUL_SPACE_ID,
       },
     },
-    "gatsby-plugin-image",
-    "gatsby-plugin-react-helmet",
-    "gatsby-plugin-sitemap",
     {
-      resolve: "gatsby-plugin-manifest",
+      resolve: 'gatsby-plugin-firebase',
       options: {
-        icon: "src/images/icon.png",
+        features: {
+          auth: true,
+          database: false,
+          firestore: false,
+          storage: false,
+          messaging: false,
+          functions: false,
+          performance: false,
+        },
+        credentials: {
+          apiKey: process.env.apiKey,
+          authDomain: process.env.authDomain,
+          databaseURL: process.env.databaseURL,
+          projectId: process.env.projectId,
+          storageBucket: process.env.storageBucket,
+          messagingSenderId: process.env.messagingSenderId,
+          appId: process.env.appId,
+        },
       },
     },
-    "gatsby-plugin-sharp",
-    "gatsby-transformer-sharp",
+    'gatsby-plugin-image',
+    'gatsby-plugin-postcss',
+    'gatsby-plugin-react-helmet',
+    'gatsby-plugin-sitemap',
     {
-      resolve: "gatsby-source-filesystem",
+      resolve: 'gatsby-plugin-manifest',
       options: {
-        name: "images",
-        path: "./src/images/",
+        icon: 'src/images/icon.png',
       },
-      __key: "images",
+    },
+    'gatsby-plugin-sharp',
+    'gatsby-transformer-sharp',
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        name: 'images',
+        path: './src/images/',
+      },
+      __key: 'images',
     },
   ],
-};
+}
