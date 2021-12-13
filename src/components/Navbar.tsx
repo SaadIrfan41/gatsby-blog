@@ -4,7 +4,6 @@ import { Link } from 'gatsby'
 import { useAuthState } from 'react-firebase-hooks/auth'
 import { StaticImage } from 'gatsby-plugin-image'
 const Navbar = () => {
-  const googleProvider = new firebase.auth.GoogleAuthProvider()
   const [user, loading, error] = useAuthState(firebase.auth())
 
   if (error) {
