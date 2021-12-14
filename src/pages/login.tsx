@@ -1,6 +1,6 @@
 import { Formik } from 'formik'
 import { Link } from 'gatsby'
-import React from 'react'
+import React, { useState } from 'react'
 import * as yup from 'yup'
 import firebase from 'gatsby-plugin-firebase'
 // import { useAuthState } from 'react-firebase-hooks/auth'
@@ -11,6 +11,7 @@ import { navigate } from 'gatsby'
 const login = () => {
   // const auth = firebase.auth()
   // const googleProvider = new firebase.auth.GoogleAuthProvider()
+  const [errormessage, seterrormessage] = useState('')
   const [user, loading, error] = useAuthState(firebase)
   if (loading)
     return (
@@ -25,6 +26,7 @@ const login = () => {
   if (user) {
     navigate('/')
   }
+  console.log(error)
 
   return (
     <>
@@ -69,6 +71,8 @@ const login = () => {
 
                       console.log(result)
                     } catch (error) {
+                      //@ts-ignore
+                      seterrormessage(error?.code)
                       console.log(error)
                     }
                   }}
@@ -158,7 +162,7 @@ const login = () => {
                           </span>
                         </div>
 
-                        <div className='flex items-center justify-between'>
+                        {/* <div className='flex items-center justify-between'>
                           <div className='text-sm'>
                             <a
                               href='#'
@@ -175,7 +179,7 @@ const login = () => {
                               Register
                             </Link>
                           </div>
-                        </div>
+                        </div> */}
 
                         <div>
                           <button
@@ -185,12 +189,17 @@ const login = () => {
                           >
                             {isSubmitting ? 'Loading...' : 'Sign in'}
                           </button>
+                          {errormessage && (
+                            <div className='pt-4 text-center text-red-500'>
+                              <p>Invalid Email or Password</p>
+                            </div>
+                          )}
                         </div>
                       </form>
                     </div>
                   )}
                 </Formik>
-                <div className='mt-6'>
+                {/* <div className='mt-6'>
                   <div className='relative'>
                     <div className='absolute inset-0 flex items-center'>
                       <div className='w-full border-t border-gray-300' />
@@ -262,7 +271,7 @@ const login = () => {
                       </a>
                     </div>
                   </div>
-                </div>
+                </div> */}
               </div>
             </div>
           </div>
